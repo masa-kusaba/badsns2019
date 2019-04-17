@@ -12,8 +12,9 @@ RUN apt-get update && apt-get -y install \
     software-properties-common \
     sqlite3 \
     vsftpd \
- && apt-get -y purge libgs9 ghostscript && apt-get -y install \
+ && apt-get -y purge libgs9 libgs9-common ghostscript && apt-get -y install \
     libgs9=9.18~dfsg~0-0ubuntu2 \
+    libgs9-common=9.18~dfsg~0-0ubuntu2 \
     ghostscript=9.18~dfsg~0-0ubuntu2 \
  && apt-add-repository -y ppa:brightbox/ruby-ng && apt-get update && apt-get -y install \
     rbenv \
@@ -29,6 +30,7 @@ RUN gem install bundler && bundle install
 COPY files/conf/nginx-default /etc/nginx/sites-enabled/default
 COPY files/conf/nginx.conf /etc/nginx/nginx.conf
 COPY files/conf/vsftpd.conf /etc/vsftpd.conf
+COPY files/conf/policy.xml /etc/ImageMagick-6/policy.xml
 COPY files/bad_sns_production.sql /root/bad_sns_production.sql
 COPY files/rc.local /etc/rc.local
 
