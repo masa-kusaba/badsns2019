@@ -32,3 +32,7 @@ http://localhost:10080/
 ## MailHog
 
 http://localhost:10080/mailhog/
+
+## License
+
+Please see [LICENSE](https://github.com/ommadawn46/badsns2019/blob/master/LICENSE).
