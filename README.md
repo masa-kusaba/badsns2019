@@ -1,37 +1,37 @@
 # Bad SNS 2019
 
-This is a significant vulnerable SNS web application made with Ruby on Rails.
+Bad SNS 2019 is a vulnerable web app built on Ruby on Rails.
+
+Bad SNS 2019は、某SNSを模して作られた脆弱性を多数含むWebアプリケーションです。
+
+セキュアコーディングや脆弱性診断のトレーニング教材（やられアプリ）として利用が可能です。
+ 
+本アプリケーションは、Ruby on Railsで開発されています。
+
+
+## 注意
 
 The product is meant for educational purposes only.  
 DO NOT use any portion of the code for production.
 
-某SNS風の脆弱なWebアプリケーション。
+Bad SNS 2019は、教育目的での利用のみを意図して作られています。  
+危険なので、製品の一部としてコードを流用しないでください。
 
-Ruby on Railsで開発されています。  
-意図的に脆弱性を作り込りこんであり、やられアプリなどの用途で利用が可能です。  
 
-このアプリは教育目的での利用のみを意図して作られています。  
-非常に危険なので製品の一部としてコードを流用しないでください。
+## Quick Start
 
-## Pull
-
-```
-$ docker pull ommadawn46/badsns2019
-```
-
-## Run
+### Run
 
 ```
 $ docker run --privileged -d --rm -p 10080:80 --name badsns2019 ommadawn46/badsns2019
 ```
 
-## SNS
+### Browse
 
-http://localhost:10080/
+- Bad SNS: http://localhost:10080/
 
-## MailHog
+- MailHog: http://localhost:10080/mailhog/
 
-http://localhost:10080/mailhog/
 
 ## License
 
