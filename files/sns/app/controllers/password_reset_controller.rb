@@ -12,6 +12,8 @@ class PasswordResetController < ApplicationController
 
   def update
     begin
+      render json: {errors: ['Passを入力してください']}, status: :bad_request and return if params[:pass].empty?
+
       payload = decode_reset_token(params[:reset_token])
       user = User.find payload[:id]
       user.update(pass: Digest::MD5.hexdigest(params[:pass]))
