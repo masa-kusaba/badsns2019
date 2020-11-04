@@ -279,14 +279,14 @@ const main = () => {
       // コメント内のURLを抽出
       // ref: http://urlregex.com/
       const urlregex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/g
-      const urls = feed.comment.match(urlregex);
-      if (urls) {
+      const matchedUrls = content.innerHTML.match(urlregex);
+      if (matchedUrls) {
         // URLをaタグに置き換え
         content.innerHTML = content.innerHTML.replace(urlregex, url => {
           return `<a href="${url}">${url}</a>`;
         });
         const thumbnails_div = fragment.getElementById('thumbnails');
-        urls.forEach(link_url => {
+        matchedUrls.forEach(link_url => {
           // APIからURLに紐づくOpenGraph情報を取得
           const url = `/open_graph?url=${encodeURIComponent(link_url)}`
           const process = result => {
