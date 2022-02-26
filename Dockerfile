@@ -3,6 +3,13 @@ LABEL maintainer="ommadawn46"
 
 WORKDIR /var/www/app/sns/
 
+RUN /bin/echo -e "Acquire::http::Timeout \"300\";\n\
+Acquire::ftp::Timeout \"300\";" >> /etc/apt/apt.conf.d/99timeout
+RUN gpg --keyserver pgp.mit.edu --recv-keys 9554F04D7259F04124DE6B476D5A82AC7E37093B ;
+RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 9554F04D7259F04124DE6B476D5A82AC7E37093B ;
+RUN sed -i.org -e 's|archive.ubuntu.com|jp.archive.ubuntu.com|g' /etc/apt/sources.list ;
+RUN apt -o Acquire::ForceIPv4=true update
+
 RUN apt-get update && apt-get -y install \
     apt-utils \
     imagemagick \
